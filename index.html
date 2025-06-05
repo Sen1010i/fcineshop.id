@@ -3,57 +3,109 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Website Sederhana</title>
+  <title>Stand Jualan - Es Segar</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 20px;
+      background-color: #fff8f0;
     }
     header {
-      background-color: #4CAF50;
+      background-color: #ff6347;
       color: white;
-      padding: 15px 20px;
+      padding: 20px;
       text-align: center;
     }
-    main {
-      margin: 20px auto;
-      max-width: 600px;
-      background: white;
+    .container {
       padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .product {
+      display: flex;
+      background-color: #fff;
+      margin-bottom: 20px;
       border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .product img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+    }
+    .product-info {
+      padding: 15px;
+      flex: 1;
+    }
+    .product-info h3 {
+      margin: 0;
+    }
+    .price {
+      color: #e74c3c;
+      font-weight: bold;
+      margin-top: 5px;
     }
     button {
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      border: none;
+      background-color: #ff6347;
       color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-top: 10px;
       cursor: pointer;
       border-radius: 5px;
     }
     button:hover {
-      background-color: #45a049;
+      background-color: #e5533d;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #eee;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Halo Dunia!</h1>
-    <p>Ini adalah website HTML sederhana</p>
+    <h1>Stand Es Segar</h1>
+    <p>Segar, Enak, dan Terjangkau!</p>
   </header>
 
-  <main>
-    <p>Selamat datang di website ini. Klik tombol di bawah untuk interaksi sederhana.</p>
-    <button onclick="sapa()">Klik Saya</button>
-    <p id="output"></p>
-  </main>
+  <div class="container">
+
+    <div class="product">
+      <img src="https://source.unsplash.com/200x200/?juice" alt="Es Jeruk" />
+      <div class="product-info">
+        <h3>Es Jeruk</h3>
+        <p>Minuman segar dari jeruk asli, cocok untuk cuaca panas.</p>
+        <div class="price">Rp 8.000</div>
+        <button onclick="pesan('Es Jeruk')">Pesan Sekarang</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="https://source.unsplash.com/200x200/?tea" alt="Es Teh Manis" />
+      <div class="product-info">
+        <h3>Es Teh Manis</h3>
+        <p>Teh manis dingin yang menyegarkan tenggorokan.</p>
+        <div class="price">Rp 5.000</div>
+        <button onclick="pesan('Es Teh Manis')">Pesan Sekarang</button>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Hubungi kami di WA: 0812-XXXX-XXXX</p>
+  </footer>
 
   <script>
-    function sapa() {
-      document.getElementById("output").innerText = "Halo! Terima kasih sudah mengklik 😄";
+    function pesan(namaProduk) {
+      alert("Terima kasih! Anda memesan " + namaProduk);
     }
   </script>
+
 </body>
 </html>
-
