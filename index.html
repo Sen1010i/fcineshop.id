@@ -84,7 +84,7 @@
       background-color: #eee;
     }
 
-    /* RESPONSIVE */
+    /*lebih responsive*/
     @media (max-width: 768px) {
       .product {
         flex-direction: column;
@@ -132,6 +132,43 @@
         padding: 8px;
       }
     }
+
+
+    /*tampilan*/
+    form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-top: 30px;
+    }
+    form label {
+    font-weight: bold;
+    }
+    form input, form select, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+    .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+    .form-row > div {
+    flex: 1;
+    min-width: 150px;
+  }
+    @media (max-width: 600px) {
+    .form-row {
+    flex-direction: column;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -144,7 +181,7 @@
 
     <div class="container">
       <div class="product">
-        <img src="flower.jpg" alt="Floral Nail Art" />
+        <img src="flower.jpg" alt="Floral and Sea" />
         <div class="product-info">
           <h3>Floral and Sea</h3>
           <p>Motif bunga yang lembut dan feminim disertai design pink laut yang cocok untuk acara spesial!!</p>
@@ -154,7 +191,7 @@
       </div>
 
       <div class="product">
-        <img src="silvernblack.jpg" alt="Minimalist Nail Art" />
+        <img src="silvernblack.jpg" alt="Silver and Black Nail Art" />
         <div class="product-info">
           <h3>Silver and Black</h3>
           <p>Design simple dan elegan untuk keseharian!!</p>
@@ -165,6 +202,43 @@
     </div>
   </div>
 
+  <div class="container">
+  <h2>Form Pemesanan</h2>
+  <form id="formPemesanan">
+    <label for="nama">Nama:</label>
+    <input type="text" id="nama" name="nama" required>
+
+    <label for="nomor">Nomor WhatsApp:</label>
+    <input type="tel" id="nomor" name="nomor" required>
+
+    <label for="desain">Pilih Desain:</label>
+    <select id="desain" name="desain" required>
+      <option value="">-- Pilih --</option>
+      <option value="Floral and Sea">Floral and Sea</option>
+      <option value="Silver and Black">Silver and Black</option>
+    </select>
+
+    <div class="form-row">
+      <div>
+        <label for="tanggal">Tanggal Booking:</label>
+        <input type="date" id="tanggal" name="tanggal" required>
+      </div>
+      <div>
+        <label for="waktu">Waktu Booking:</label>
+        <input type="time" id="waktu" name="waktu" required>
+      </div>
+    </div>
+
+    <label for="catatan">Catatan Tambahan (opsional):</label>
+    <textarea id="catatan" name="catatan" rows="4"></textarea>
+
+    <button type="submit">Kirim Pesanan</button>
+  </form>
+
+  <p id="pesanKonfirmasi"></p>
+</div>
+
+
   <footer>
     <p>Hubungi kami di WA: +62-812-6855-6553 | IG: @fcineshop.id</p>
   </footer>
@@ -174,6 +248,44 @@
       alert("Terima kasih! Anda memilih " + namaProduk + ". Kami akan segera hubungi Anda!");
     }
   </script>
+
+  <script>
+  document.getElementById("formPemesanan").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nama = document.getElementById("nama").value.trim();
+    const nomor = document.getElementById("nomor").value.trim();
+    const desain = document.getElementById("desain").value;
+    const catatan = document.getElementById("catatan").value.trim();
+    const tanggal = document.getElementById("tanggal").value;
+    const waktu = document.getElementById("waktu").value;
+
+    // Validasi nomor WA user
+    if (!nomor.startsWith("08")) {
+      alert("Nomor WhatsApp harus dimulai dari 08");
+      return;
+    }
+
+    // Nomor WhatsApp toko (ganti sesuai nomor kamu)
+    const nomorToko = "0895806488823"; // 08xx → 628xx
+
+    // Buat isi pesan
+    const pesan = `Haloo! Saya mau pesan ya :%0A
+    Nama : ${nama}%0A
+    Nomor WA : ${nomor}%0A
+    Desain : ${desain}%0A
+    Tanggal Booking : ${tanggal}%0A
+    Waktu Booking : ${waktu}%0A
+    Catatan : ${catatan ? catatan : "-"}`;
+
+    // Buka WhatsApp toko
+    const urlWA = `https://wa.me/${nomorToko}?text=${encodeURIComponent(pesan)}`;
+    window.open(urlWA, "_blank");
+  });
+</script>
+
+</script>
+
 </body>
 </html>
 
