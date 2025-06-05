@@ -15,34 +15,36 @@
 
   <div class="container">
     <form id="formPemesanan">
-      <label for="nama">Nama:</label>
+      <label for="nama">Nama :</label>
       <input type="text" id="nama" name="nama" required>
 
       <label for="nomor">Nomor WhatsApp:</label>
       <input type="tel" id="nomor" name="nomor" required>
 
-      <label for="desain">Pilih Desain:</label>
+      <label for="desain">Pilih Desain :</label>
       <select id="desain" name="desain" required>
         <option value="">-- Pilih --</option>
-        <option value="Floral Design">Floral Design</option>
-        <option value="Minimalist Style">Minimalist Style</option>
+        <option value="Floral and Sea">Floral and Sea</option>
+        <option value="Silver and Black">Silver and Black</option>
       </select>
 
       <div class="form-row">
         <div>
-          <label for="tanggal">Tanggal Booking:</label>
+          <label for="tanggal">Tanggal Booking :</label>
           <input type="date" id="tanggal" name="tanggal" required>
         </div>
         <div>
-          <label for="waktu">Waktu Booking:</label>
+          <label for="waktu">Waktu Booking :</label>
           <input type="time" id="waktu" name="waktu" required>
         </div>
       </div>
 
-      <label for="catatan">Catatan Tambahan (opsional):</label>
+      <label for="catatan">Catatan Tambahan (Opsional) :</label>
       <textarea id="catatan" name="catatan" rows="4"></textarea>
 
-      <button type="submit">Kirim Pesanan via WhatsApp</button>
+      <button type="submit">Kirim Pesanan via WhatsApp
+      <button onclick="pesan('Kirim Pesanan via WhatsApp')">        
+      </button>
     </form>
 
     <p id="pesanKonfirmasi"></p>
@@ -80,10 +82,15 @@
       const nomorToko = "+62895806488823"; // Ganti dengan nomor WA kamu
       const pesan = `*Halooo! Ada pesanan nail art* :
     *Nama* : ${nama}
+
     *Nomor Whatsapp* : ${nomor}
+
     *Desain* : ${desain}
+
     *Tanggal Booking* : ${tanggal}
+
     *Waktu Booking* : ${waktu}
+    
     *Catatan* : ${catatan ? catatan : "-"}`;
 
       const urlWA = `https://wa.me/${nomorToko}?text=${encodeURIComponent(pesan)}`;
@@ -92,8 +99,8 @@
   </script>
 
     <script>
-    function pesan(namaProduk) {
-      alert("Terima kasih! Anda memilih " + namaProduk + ". Kami akan segera hubungi Anda!");
+    function pesan(KirimPesananviaWhatsApp) {
+      alert("Terima kasih! Anda memilih " + KirimPesananviaWhatsapp + ". Kami akan segera hubungi Anda!");
     }
   </script>
 </body>
