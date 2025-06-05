@@ -4,172 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Design Nail Art</title>
-  <style>
-    /* Agar full height dan sticky footer */
-    html, body {
-      height: 100%;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      background-color: #fff0f5;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    .wrapper {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      background-color: #db7093;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .container {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .product {
-      display: flex;
-      background-color: #fff;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .product img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .product-info {
-      padding: 15px;
-      flex: 1;
-    }
-
-    .product-info h3 {
-      margin: 0;
-    }
-
-    .price {
-      color: #c71585;
-      font-weight: bold;
-      margin-top: 5px;
-    }
-
-    button {
-      background-color: #db7093;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      margin-top: 10px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    button:hover {
-      background-color: #c06080;
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      background-color: #eee;
-    }
-
-    /*lebih responsive*/
-    @media (max-width: 768px) {
-      .product {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .product img {
-        width: 100%;
-        height: auto;
-      }
-
-      .product-info {
-        padding: 10px;
-        text-align: center;
-      }
-
-      button {
-        width: 100%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      header, footer {
-        padding: 15px;
-      }
-
-      .container {
-        padding: 10px;
-      }
-
-      h1 {
-        font-size: 24px;
-      }
-
-      .product-info h3 {
-        font-size: 18px;
-      }
-
-      .price {
-        font-size: 16px;
-      }
-
-      button {
-        font-size: 14px;
-        padding: 8px;
-      }
-    }
-
-
-    /*tampilan*/
-    form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    margin-top: 30px;
-    }
-    form label {
-    font-weight: bold;
-    }
-    form input, form select, form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 4px;
-    margin-bottom: 15px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-  }
-    .form-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-    .form-row > div {
-    flex: 1;
-    min-width: 150px;
-  }
-    @media (max-width: 600px) {
-    .form-row {
-    flex-direction: column;
-  }
-}
-
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="wrapper">
@@ -186,7 +21,7 @@
           <h3>Floral and Sea</h3>
           <p>Motif bunga yang lembut dan feminim disertai design pink laut yang cocok untuk acara spesial!!</p>
           <div class="price">Rp 25.000</div>
-          <button onclick="pesan('Floral and Sea')">Pesan Sekarang</button>
+          <a href="form.html?desain=Floral and Sea" class="button">Pesan Sekarang</a>
         </div>
       </div>
 
@@ -196,7 +31,7 @@
           <h3>Silver and Black</h3>
           <p>Design simple dan elegan untuk keseharian!!</p>
           <div class="price">Rp 20.000</div>
-          <button onclick="pesan('Silver and Black')">Pesan Sekarang</button>
+          <a href="form.html?desain=Silver and Black" class="button">Pesan Sekarang</a>
         </div>
       </div>
     </div>
@@ -206,49 +41,6 @@
   <footer>
     <p>Hubungi kami di WA: +62-812-6855-6553 | IG: @fcineshop.id</p>
   </footer>
-
-  <script>
-    function pesan(namaProduk) {
-      alert("Terima kasih! Anda memilih " + namaProduk + ". Kami akan segera hubungi Anda!");
-    }
-  </script>
-
-  <script>
-  document.getElementById("formPemesanan").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const nama = document.getElementById("nama").value.trim();
-    const nomor = document.getElementById("nomor").value.trim();
-    const desain = document.getElementById("desain").value;
-    const catatan = document.getElementById("catatan").value.trim();
-    const tanggal = document.getElementById("tanggal").value;
-    const waktu = document.getElementById("waktu").value;
-
-    // Validasi nomor WA user
-    if (!nomor.startsWith("08")) {
-      alert("Nomor WhatsApp harus dimulai dari 08");
-      return;
-    }
-
-    // Nomor WhatsApp toko (ganti sesuai nomor kamu)
-    const nomorToko = "+62895806488823"; // 08xx → 628xx
-
-    // Buat isi pesan
-    const pesan = `Haloo! Saya mau pesan ya :%0A
-    Nama : ${nama}%0A
-    Nomor WA : ${nomor}%0A
-    Desain : ${desain}%0A
-    Tanggal Booking : ${tanggal}%0A
-    Waktu Booking : ${waktu}%0A
-    Catatan : ${catatan ? catatan : "-"}`;
-
-    // Buka WhatsApp toko
-    const urlWA = `https://wa.me/${nomorToko}?text=${encodeURIComponent(pesan)}`;
-    window.open(urlWA, "_blank");
-  });
-</script>
-
-</script>
 
 </body>
 </html>
