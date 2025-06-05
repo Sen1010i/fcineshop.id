@@ -83,6 +83,13 @@ button:hover, .button-kembali:hover {
   background-color: #c06080;
 }
 
+a button {
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+
 /* Form */
 form {
   background-color: #fff;
