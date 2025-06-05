@@ -42,9 +42,8 @@
       <label for="catatan">Catatan Tambahan (Opsional) :</label>
       <textarea id="catatan" name="catatan" rows="4"></textarea>
 
-      <button type="submit">Kirim Pesanan via WhatsApp
-      <button onclick="pesan('Kirim Pesanan via WhatsApp')">        
-      </button>
+      <button type="submit">Kirim Pesanan via WhatsApp </button>
+
     </form>
 
     <p id="pesanKonfirmasi"></p>
@@ -91,7 +90,16 @@
 
     *Waktu Booking* : ${waktu}
     
-    *Catatan* : ${catatan ? catatan : "-"}`;
+    *Catatan* : ${catatan ? catatan : "-"}
+    
+    Terima kasih!! 🥰 ❤ Sudah melakukan order di tunggu ya admin akan segera membalas pesan anda 🤩😁
+    
+
+    
+    *NOTE :*
+    Apabila Admin tidak membalas dalam waktu singkat, Silahkan lanjutkan aktivitas anda.
+    Karena mungkin sedang ada Customer, Battery, Lagi sibuk hal lain, dan yang terakhir BOBOK MANIS 😴😴 hehe.. 
+    Tetapi diusahakan semaksimal mungkin untuk Customerku yang Nomor Satu 🥇`;
 
       const urlWA = `https://wa.me/${nomorToko}?text=${encodeURIComponent(pesan)}`;
       window.open(urlWA, "_blank");
