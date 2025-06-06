@@ -15,6 +15,8 @@
     </header>
 
     <div class="container">
+
+      <!-- 1  -->
       <div class="product">
         <img src="flower.jpg" alt="Floral and Sea" />
         <div class="product-info">
@@ -22,11 +24,18 @@
           <p>Motif bunga yang lembut dan feminim disertai design pink laut yang cocok untuk acara spesial!!</p>
           <div class="price">Rp 25.000</div>
           <a href="form.html?desain=Floral and Sea">
-            <button type="button">Pesan Sekarang</button>
+            <button type="button" class="ripple-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                   viewBox="0 0 24 24" class="icon">
+                <path d="M14 2H10v4h4V2zm1 6H9c-1.1 0-2 .9-2 2v12h10V10c0-1.1-.9-2-2-2zM9 22V10h6v12H9z"/>
+              </svg>
+              Pesan Sekarang
+            </button>
           </a>
         </div>
       </div>
 
+      <!-- 2 -->
       <div class="product">
         <img src="silvernblack.jpg" alt="Silver and Black Nail Art" />
         <div class="product-info">
@@ -34,18 +43,39 @@
           <p>Design simple dan elegan untuk keseharian!!</p>
           <div class="price">Rp 20.000</div>
           <a href="form.html?desain=Silver and Black">
-            <button type="button">Pesan Sekarang</button>
+            <button type="button" class="ripple-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                   viewBox="0 0 24 24" class="icon">
+                <path d="M14 2H10v4h4V2zm1 6H9c-1.1 0-2 .9-2 2v12h10V10c0-1.1-.9-2-2-2zM9 22V10h6v12H9z"/>
+              </svg>
+              Pesan Sekarang
+            </button>
           </a>
         </div>
       </div>
+
     </div>
   </div>
-
 
   <footer>
     <p>Hubungi kami di WA: +62-812-6855-6553 | IG: @fcineshop.id</p>
   </footer>
 
+  <!-- Ripple JS -->
+  <script>
+    document.querySelectorAll(".ripple-btn").forEach(button => {
+      button.addEventListener("click", function(e) {
+        const circle = document.createElement("span");
+        circle.classList.add("ripple-circle");
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        circle.style.width = circle.style.height = `${size}px`;
+        circle.style.left = `${e.clientX - rect.left - size / 2}px`;
+        circle.style.top = `${e.clientY - rect.top - size / 2}px`;
+        this.appendChild(circle);
+        setTimeout(() => circle.remove(), 600);
+      });
+    });
+  </script>
 </body>
 </html>
-
