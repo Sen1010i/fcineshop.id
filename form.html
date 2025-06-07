@@ -119,5 +119,35 @@ Jika admin belum membalas cepat, mungkin sedang melayani customer lain, atau sed
       });
     });
   </script>
+
+  <script>
+  // Set tanggal minimum = hari ini
+  const inputTanggal = document.getElementById("tanggal");
+  const inputWaktu = document.getElementById("waktu");
+
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const dd = String(today.getDate()).padStart(2, '0');
+  const todayStr = `${yyyy}-${mm}-${dd}`;
+
+  inputTanggal.min = todayStr;
+
+  // Saat tanggal dipilih, cek apakah hari ini → batasi waktu minimum
+  inputTanggal.addEventListener("change", function () {
+    const selectedDate = this.value;
+    const now = new Date();
+
+    if (selectedDate === todayStr) {
+      // Format waktu: HH:MM (24 jam)
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      inputWaktu.min = `${hours}:${minutes}`;
+    } else {
+      inputWaktu.removeAttribute("min");
+    }
+  });
+</script>
+
 </body>
 </html>

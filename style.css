@@ -65,25 +65,25 @@ footer {
   color: #c71585;
   font-weight: bold;
   margin-top: 5px;
+  margin-bottom: 10px;
 }
 
-.btn-kembali-header {
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  background-color: #ffffff33;
+button {
+  background-color: #db7093;
   color: white;
-  font-size: 22px;
-  padding: 6px 10px;
-  border-radius: 6px;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  display: inline-block;
+  transition: all 0.3s ease;
 }
 
-.btn-kembali-header:hover {
-  background-color: #ffffff55;
+button:hover {
+  background-color: #c06080;
 }
-
 
 
 a button {
@@ -195,11 +195,14 @@ form textarea {
   border-radius: 6px;
   cursor: pointer;
   font-size: 16px;
-  display: inline-flex;
+  display: flex; /* ubah dari inline-flex jadi flex biasa */
   align-items: center;
+  justify-content: center; /* Biar isi tombol rata tengah */
   gap: 8px;
+  width: 100%; /* Tambahan agar tombol full lebar di HP */
   transition: all 0.3s ease;
 }
+
 
 .ripple-btn:hover {
   background-color: #c06080;
@@ -253,4 +256,81 @@ form textarea {
 
 .btn-kembali-atas:hover {
   background-color: #c06080;
+}
+
+.btn-kembali-header {
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  background-color: #ffffff33;
+  color: white;
+  font-size: 22px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-kembali-header:hover {
+  background-color: #ffffff55;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.search-bar input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 180px;
+  transition: width 0.3s ease;
+}
+
+.search-bar input:focus {
+  width: 250px;
+  outline: none;
+}
+
+/* HERO BANNER */
+.hero-banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-text {
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-text h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 18px;
+  margin-bottom: 20px;
 }
