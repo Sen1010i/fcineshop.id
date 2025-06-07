@@ -67,22 +67,23 @@ footer {
   margin-top: 5px;
 }
 
-button {
-  background-color: #db7093;
+.btn-kembali-header {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  background-color: #ffffff33;
   color: white;
-  border: none;
-  padding: 10px 15px;
-  margin-top: 10px;
-  cursor: pointer;
-  border-radius: 5px;
+  font-size: 22px;
+  padding: 6px 10px;
+  border-radius: 6px;
   text-decoration: none;
-  display: inline-block;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #c06080;
+.btn-kembali-header:hover {
+  background-color: #ffffff55;
 }
+
 
 
 a button {

@@ -8,20 +8,22 @@
 </head>
 <body>
 
-  <header>
+  <header style="position: relative;">
+    <!-- Tombol kembali dalam header -->
+    <a href="index.html" class="btn-kembali-header" title="Kembali ke Halaman Utama">←</a>
     <h1>Pemesanan Nail Art</h1>
     <p>Silakan isi form berikut untuk melakukan pemesanan</p>
   </header>
 
   <div class="container">
     <form id="formPemesanan">
-      <label for="nama">Nama :</label>
+      <label for="nama">Nama:</label>
       <input type="text" id="nama" name="nama" required>
 
       <label for="nomor">Nomor WhatsApp:</label>
-      <input type="tel" id="nomor" name="nomor" required>
+      <input type="tel" id="nomor" name="nomor" placeholder="08xxxxxxxxxx" required>
 
-      <label for="desain">Pilih Desain :</label>
+      <label for="desain">Pilih Desain:</label>
       <select id="desain" name="desain" required>
         <option value="">-- Pilih --</option>
         <option value="Floral and Sea">Floral and Sea</option>
@@ -30,32 +32,32 @@
 
       <div class="form-row">
         <div>
-          <label for="tanggal">Tanggal Booking :</label>
+          <label for="tanggal">Tanggal Booking:</label>
           <input type="date" id="tanggal" name="tanggal" required>
         </div>
         <div>
-          <label for="waktu">Waktu Booking :</label>
+          <label for="waktu">Waktu Booking:</label>
           <input type="time" id="waktu" name="waktu" required>
         </div>
       </div>
 
-      <label for="catatan">Catatan Tambahan (Opsional) :</label>
+      <label for="catatan">Catatan Tambahan (Opsional):</label>
       <textarea id="catatan" name="catatan" rows="4"></textarea>
 
-      <button type="submit">Kirim Pesanan via WhatsApp </button>
-
+      <!-- Tombol submit -->
+      <button type="submit" class="ripple-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+             viewBox="0 0 24 24" class="icon">
+          <path d="M20 2H4c-1.1 0-2 .9-2 2v16l4-4h14c1.1 
+                   0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+        </svg>
+        Kirim Pesanan via WhatsApp
+      </button>
     </form>
+  </div>
 
-    <p id="pesanKonfirmasi"></p>
-
-<!-- div style="text-align:center; margin-top:20px;"> 
-        <a href="index.html" class="button-kembali">← Kembali ke Halaman Utama</a>
-    </div>
-  </div>-->
-  
-
+  <!-- Ambil desain dari URL -->
   <script>
-    // Ambil desain dari URL
     const params = new URLSearchParams(window.location.search);
     const desainDipilih = params.get("desain");
     if (desainDipilih) {
@@ -63,7 +65,10 @@
         document.getElementById("desain").value = desainDipilih;
       });
     }
+  </script>
 
+  <!-- Kirim ke WhatsApp -->
+  <script>
     document.getElementById("formPemesanan").addEventListener("submit", function(e) {
       e.preventDefault();
 
@@ -79,38 +84,40 @@
         return;
       }
 
-      const nomorToko = "+62895806488823"; // Ganti dengan nomor WA kamu
+      const nomorToko = "62895806488823";
       const pesan = `*Halooo! Ada pesanan nail art* :
-    *Nama* : ${nama}
+*Nama*: ${nama}
+*Nomor Whatsapp*: ${nomor}
+*Desain*: ${desain}
+*Tanggal Booking*: ${tanggal}
+*Waktu Booking*: ${waktu}
+*Catatan*: ${catatan || "-"}
 
-    *Nomor Whatsapp* : ${nomor}
+Terima kasih!! 🥰 ❤ Sudah melakukan order! Ditunggu ya, admin akan segera membalas pesan anda 🤩😁
 
-    *Desain* : ${desain}
-
-    *Tanggal Booking* : ${tanggal}
-
-    *Waktu Booking* : ${waktu}
-    
-    *Catatan* : ${catatan ? catatan : "-"}
-    
-    Terima kasih!! 🥰 ❤ Sudah melakukan order di tunggu ya admin akan segera membalas pesan anda 🤩😁
-    
-
-
-    *NOTE :*
-    Apabila Admin tidak membalas dalam waktu singkat, Silahkan lanjutkan aktivitas anda.
-    Karena mungkin sedang ada Customer, Kendala Battery, Lagi sibuk hal lain, dan yang terakhir BOBOK MANIS 😴😴 hehe.. 
-    Tetapi diusahakan semaksimal mungkin untuk Customerku yang Nomor Satu 🥇`;
+*NOTE:*
+Jika admin belum membalas cepat, mungkin sedang melayani customer lain, atau sedang bobok manis 😴. Tapi tenang, pesanmu tetap kami utamakan 🥇`;
 
       const urlWA = `https://wa.me/${nomorToko}?text=${encodeURIComponent(pesan)}`;
       window.open(urlWA, "_blank");
     });
   </script>
 
-    <script>
-    function pesan(KirimPesananviaWhatsApp) {
-      alert("Terima kasih! Anda memilih " + KirimPesananviaWhatsapp + ". Kami akan segera hubungi Anda!");
-    }
+  <!-- Ripple -->
+  <script>
+    document.querySelectorAll(".ripple-btn").forEach(button => {
+      button.addEventListener("click", function(e) {
+        const circle = document.createElement("span");
+        circle.classList.add("ripple-circle");
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        circle.style.width = circle.style.height = `${size}px`;
+        circle.style.left = `${e.clientX - rect.left - size / 2}px`;
+        circle.style.top = `${e.clientY - rect.top - size / 2}px`;
+        this.appendChild(circle);
+        setTimeout(() => circle.remove(), 600);
+      });
+    });
   </script>
 </body>
 </html>
