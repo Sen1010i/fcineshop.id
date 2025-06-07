@@ -1,4 +1,4 @@
-/* Global */
+/* GLOBAL */
 body, html {
   margin: 0;
   padding: 0;
@@ -15,7 +15,7 @@ body, html {
   flex-direction: column;
 }
 
-/* Header & Footer */
+/* HEADER & FOOTER */
 header {
   background-color: #db7093;
   color: white;
@@ -29,14 +29,14 @@ footer {
   background-color: #eee;
 }
 
-/* Container */
+/* CONTAINER */
 .container {
   padding: 20px;
   max-width: 900px;
   margin: auto;
 }
 
-/* Product */
+/* PRODUK */
 .product {
   display: flex;
   background-color: #fff;
@@ -67,7 +67,7 @@ footer {
   margin-top: 5px;
 }
 
-button, .button-kembali {
+button {
   background-color: #db7093;
   color: white;
   border: none;
@@ -77,11 +77,13 @@ button, .button-kembali {
   border-radius: 5px;
   text-decoration: none;
   display: inline-block;
+  transition: all 0.3s ease;
 }
 
-button:hover, .button-kembali:hover {
+button:hover {
   background-color: #c06080;
 }
+
 
 a button {
   text-decoration: none;
@@ -89,8 +91,7 @@ a button {
   cursor: pointer;
 }
 
-
-/* Form */
+/* FORM */
 form {
   background-color: #fff;
   padding: 20px;
@@ -115,7 +116,7 @@ form textarea {
   box-sizing: border-box;
 }
 
-/* Tanggal & Waktu */
+/* TANGGAL & WAKTU */
 .form-row {
   display: flex;
   flex-wrap: wrap;
@@ -127,7 +128,7 @@ form textarea {
   min-width: 150px;
 }
 
-/* Responsive */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .product {
     flex-direction: column;
@@ -182,9 +183,7 @@ form textarea {
   }
 }
 
-
-
-/* Tombol dengan Ripple + Animasi + Ikon */
+/* TOMBOL RIPPLE + ANIMASI */
 .ripple-btn {
   position: relative;
   overflow: hidden;
@@ -233,4 +232,24 @@ form textarea {
 
 .ripple-btn:hover .icon {
   transform: rotate(-10deg) scale(1.2);
+}
+
+/* TOMBOL KEMBALI ATAS (←) */
+.btn-kembali-atas {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  background-color: #db7093;
+  border-radius: 50%;
+  padding: 8px;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-kembali-atas:hover {
+  background-color: #c06080;
 }
