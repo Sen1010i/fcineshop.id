@@ -61,11 +61,46 @@ footer {
   margin: 0;
 }
 
+/* Produk animasi */
+.product {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.3s ease;
+}
+
+.product.hide {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Pesan tidak ditemukan */
+#noResult {
+  display: block;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #c71585;
+}
+
+#noResult.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 .price {
   color: #c71585;
   font-weight: bold;
   margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 button {
@@ -275,6 +310,7 @@ form textarea {
   background-color: #ffffff55;
 }
 
+/* HEADER */
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -295,16 +331,16 @@ form textarea {
   padding: 8px 12px;
   border: 1px solid #ccc;
   border-radius: 20px;
-  width: 180px;
+  width: 160px;
   transition: width 0.3s ease;
 }
 
 .search-bar input:focus {
-  width: 250px;
+  width: 220px;
   outline: none;
 }
 
-/* HERO BANNER */
+/* BANNER */
 .hero-banner {
   position: relative;
   width: 100%;
@@ -313,7 +349,8 @@ form textarea {
 
 .banner-img {
   width: 100%;
-  height: auto;
+  max-height: 600px;
+  object-fit: cover;
   display: block;
 }
 
@@ -322,7 +359,7 @@ form textarea {
   top: 25%;
   left: 10%;
   color: white;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .hero-text h1 {
@@ -333,4 +370,18 @@ form textarea {
 .hero-text p {
   font-size: 18px;
   margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 20px;
+  }
+
+  .hero-text p {
+    font-size: 14px;
+  }
+
+  .search-bar input {
+    width: 120px;
+  }
 }

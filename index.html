@@ -5,96 +5,147 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Design Nail Art</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    #produk {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .product {
+      flex-direction: column;
+      text-align: center;
+      padding-bottom: 20px;
+      position: relative;
+    }
+
+    .product img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .product-info {
+      padding: 16px;
+    }
+
+    .ripple-btn {
+      width: 100%;
+    }
+
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: crimson;
+      color: white;
+      padding: 4px 8px;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    .filters {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .filters button {
+      margin: 5px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 20px;
+      background-color: #db7093;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .filters button:hover {
+      background-color: #c06080;
+    }
+
+    @media (max-width: 480px) {
+      .hero-text h1 {
+        font-size: 20px;
+      }
+      .hero-text p {
+        font-size: 14px;
+      }
+      .search-bar input {
+        width: 100px;
+      }
+      .product-info p {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="wrapper">
-  <header class="main-header">
-  <div class="logo">
-    <img src="logo.jpg" alt="Logo Toko" />
-  </div>
-  <div class="search-bar">
-    <input type="text" placeholder="Cari desain..." />
-  </div>
-  </header>
+    <!-- Header & Banner tetap sama -->
 
-  <!-- BANNER -->
-  <section class="hero-banner">
-  <img src="banner.jpg" alt="Promo Nail Art" class="banner-img" />
-  <div class="hero-text">
-    <h1>Temukan Desain Nail Art Impianmu 💅</h1>
-    <p>Koleksi terbaru dan custom design tersedia sekarang!</p>
-    <a href="#produk" class="ripple-btn">Lihat Koleksi</a>
-  </div>
-  </section>
-
-    <!-- <header>
-      <h1>Design Nail Art</h1>
-      <p>Kreasikan kukumu dengan design yang cantik dan unik!</p>
-      <p>Mau custom? Boleh banget kirim design yang kamu suka ke No Whatsapp yang ada di bawah ya!</p>
-    </header> -->
+    <!-- Filter kategori -->
+    <div class="filters">
+      <button onclick="filterKategori('all')">Semua</button>
+      <button onclick="filterKategori('elegan')">Elegan</button>
+      <button onclick="filterKategori('feminim')">Feminim</button>
+    </div>
 
     <div class="container">
+      <div id="produk">
+        <div class="product" data-kategori="feminim">
+          <span class="badge">Promo</span>
+          <img src="flower.jpg" alt="Floral and Sea" />
+          <div class="product-info">
+            <h3>Floral and Sea</h3>
+            <p>Motif bunga yang lembut dan feminim disertai design pink laut yang cocok untuk acara spesial!!</p>
+            <div class="price">Rp 25.000</div>
+            <a href="form.html?desain=Floral and Sea">
+              <button type="button" class="ripple-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24" class="icon">
+                  <path d="M14 2H10v4h4V2zm1 6H9c-1.1 0-2 .9-2 2v12h10V10c0-1.1-.9-2-2-2zM9 22V10h6v12H9z"/>
+                </svg>
+                Pesan Sekarang
+              </button>
+            </a>
+          </div>
+        </div>
 
-      <!-- 1  -->
-      <div class="product">
-        <img src="flower.jpg" alt="Floral and Sea" />
-        <div class="product-info">
-          <h3>Floral and Sea</h3>
-          <p>Motif bunga yang lembut dan feminim disertai design pink laut yang cocok untuk acara spesial!!</p>
-          <div class="price">Rp 25.000</div>
-          <a href="form.html?desain=Floral and Sea">
-            <button type="button" class="ripple-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                   viewBox="0 0 24 24" class="icon">
-                <path d="M14 2H10v4h4V2zm1 6H9c-1.1 0-2 .9-2 2v12h10V10c0-1.1-.9-2-2-2zM9 22V10h6v12H9z"/>
-              </svg>
-              Pesan Sekarang
-            </button>
-          </a>
+        <div class="product" data-kategori="elegan">
+          <img src="silvernblack.jpg" alt="Silver and Black Nail Art" />
+          <div class="product-info">
+            <h3>Silver and Black</h3>
+            <p>Design simple dan elegan untuk keseharian!!</p>
+            <div class="price">Rp 20.000</div>
+            <a href="form.html?desain=Silver and Black">
+              <button type="button" class="ripple-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24" class="icon">
+                  <path d="M14 2H10v4h4V2zm1 6H9c-1.1 0-2 .9-2 2v12h10V10c0-1.1-.9-2-2-2zM9 22V10h6v12H9z"/>
+                </svg>
+                Pesan Sekarang
+              </button>
+            </a>
+          </div>
         </div>
       </div>
-
-      <!-- 2 -->
-      <div class="product">
-        <img src="silvernblack.jpg" alt="Silver and Black Nail Art" />
-        <div class="product-info">
-          <h3>Silver and Black</h3>
-          <p>Design simple dan elegan untuk keseharian!!</p>
-          <div class="price">Rp 20.000</div>
-          <a href="form.html?desain=Silver and Black">
-            <button type="button" class="ripple-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                   viewBox="0 0 24 24" class="icon">
-                <path d="M14 2H10v4h4V2zm1 6H9c-1.1 0-2 .9-2 2v12h10V10c0-1.1-.9-2-2-2zM9 22V10h6v12H9z"/>
-              </svg>
-              Pesan Sekarang
-            </button>
-          </a>
-        </div>
-      </div>
-
+      <p id="noResult" class="">Produk tidak ditemukan.</p>
     </div>
   </div>
 
-  <footer>
-    <p>Hubungi kami di WA: +62-812-6855-6553 | IG: @fcineshop.id</p>
-  </footer>
-
-  <!-- Ripple JS -->
   <script>
-    document.querySelectorAll(".ripple-btn").forEach(button => {
-      button.addEventListener("click", function(e) {
-        const circle = document.createElement("span");
-        circle.classList.add("ripple-circle");
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        circle.style.width = circle.style.height = `${size}px`;
-        circle.style.left = `${e.clientX - rect.left - size / 2}px`;
-        circle.style.top = `${e.clientY - rect.top - size / 2}px`;
-        this.appendChild(circle);
-        setTimeout(() => circle.remove(), 600);
+    function filterKategori(kategori) {
+      const produk = document.querySelectorAll(".product");
+      let visible = 0;
+      produk.forEach((item) => {
+        const match = item.dataset.kategori === kategori || kategori === 'all';
+        item.style.display = match ? 'block' : 'none';
+        if (match) visible++;
       });
-    });
+      document.getElementById("noResult").style.display = visible === 0 ? 'block' : 'none';
+    }
   </script>
 </body>
 </html>
