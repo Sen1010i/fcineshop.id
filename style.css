@@ -59,6 +59,8 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 300px; /* atau 320px */
+  min-height: 440px;
 }
 
 .product.hide {
@@ -84,11 +86,21 @@ footer {
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
+  flex: 1;
+
 }
 
 .product-info h3 {
   margin: 0;
 }
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
 
 .price {
   color: #c71585;

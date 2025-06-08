@@ -20,7 +20,7 @@
 
     <!-- BANNER -->
     <section class="hero-banner">
-      <img src="banner.jpg" alt="Promo Nail Art" class="banner-img" />
+      <img src="banner.png" alt="Promo Nail Art" class="banner-img" />
       <div class="hero-text">
         <h1>Temukan Desain Nail Art Impianmu 💅</h1>
         <p>Koleksi terbaru dan custom design tersedia sekarang!</p>
@@ -38,7 +38,7 @@
     <!-- PRODUK -->
     <div class="container">
       <div id="produk">
-        <div class="product" data-kategori="feminim">
+        <div class="product" data-kategori="feminim" data-nama="Floral and Sea">
           <span class="badge">Promo</span>
           <img src="flower.jpg" alt="Floral and Sea" />
           <div class="product-info">
@@ -56,7 +56,7 @@
           </div>
         </div>
 
-        <div class="product" data-kategori="elegan">
+        <div class="product" data-kategori="elegan" data-nama="Silver and Black">
           <img src="silvernblack.jpg" alt="Silver and Black Nail Art" />
           <div class="product-info">
             <h3>Silver and Black</h3>
@@ -90,5 +90,24 @@
       document.getElementById("noResult").style.display = visible === 0 ? 'block' : 'none';
     }
   </script>
+
+  <script>
+  const inputSearch = document.getElementById("searchInput");
+  const produkList = document.querySelectorAll(".product");
+
+  inputSearch.addEventListener("input", () => {
+    const query = inputSearch.value.toLowerCase();
+
+    produkList.forEach(produk => {
+      const nama = produk.getAttribute("data-nama").toLowerCase();
+      if (nama.includes(query)) {
+        produk.style.display = "flex";
+      } else {
+        produk.style.display = "none";
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
