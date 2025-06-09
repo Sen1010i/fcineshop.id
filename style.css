@@ -314,3 +314,33 @@ form textarea {
     flex-direction: column;
   }
 }
+
+/* === FORM HEADER === */
+.form-header {
+  background-color: #ffe4ec;
+  padding: 30px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.form-header-text {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #c71585;
+}
+
+.form-header p {
+  margin: 8px 0 0;
+  color: #555;
+}
+
+.form-header .btn-kembali {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}

@@ -22,14 +22,9 @@
     <!-- Banner -->
     <section class="hero-banner">
       <img src="banner.png" alt="Promo Nail Art" class="banner-img" />
-      <!-- <div class="hero-text">
-        <h1>Temukan Desain Nail Art Impianmu 💅</h1>
-        <p>Koleksi terbaru dan custom design tersedia sekarang!</p>
-        <a href="#produk" class="ripple-btn">Ayo Dicek</a>
-      </div> -->
     </section>
 
-    <!-- Kategori Filter -->
+    <!-- Filter Kategori (hanya di desktop) -->
     <div class="kategori-filter">
       <button data-filter="elegan">Elegan</button>
       <button data-filter="semua" class="active">Semua</button>
@@ -37,14 +32,12 @@
       <button data-filter="promo">Promo</button>
     </div>
 
-
     <!-- Produk -->
     <div class="container">
       <div class="product-list" id="produk">
 
         <!-- Produk 1 -->
         <div class="product" data-nama="Floral and Sea" data-kategori="feminin promo">
-          <span class="label-promo">Promo</span>
           <img src="flower.jpg" alt="Floral and Sea" />
           <div class="product-info">
             <h3>Floral and Sea</h3>
@@ -53,6 +46,8 @@
               <span class="harga-asli">Rp 30.000</span>
               <span class="harga-diskon">Rp 25.000</span>
             </div>
+          </div>
+          <div class="pesan-wrapper">
             <a href="form.html?desain=Floral and Sea">
               <button type="button" class="ripple-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -72,6 +67,8 @@
             <h3>Silver and Black</h3>
             <p>Design simple dan elegan untuk keseharian!!</p>
             <div class="price">Rp 20.000</div>
+          </div>
+          <div class="pesan-wrapper">
             <a href="form.html?desain=Silver and Black">
               <button type="button" class="ripple-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -93,9 +90,9 @@
     </footer>
   </div>
 
-  <!-- Ripple, Pencarian & Filter Script -->
+  <!-- JS: Ripple Effect, Pencarian, Kategori Filter -->
   <script>
-    // Ripple effect
+    // Ripple
     document.querySelectorAll(".ripple-btn").forEach(button => {
       button.addEventListener("click", function(e) {
         const circle = document.createElement("span");
@@ -110,7 +107,7 @@
       });
     });
 
-    // Pencarian nama produk
+    // Pencarian
     const inputSearch = document.getElementById("searchInput");
     const produkList = document.querySelectorAll(".product");
 
@@ -129,14 +126,10 @@
         const kategoriDipilih = button.getAttribute("data-filter");
         produkList.forEach(produk => {
           const kategoriProduk = produk.getAttribute("data-kategori").toLowerCase();
-          if (kategoriDipilih === "semua" || kategoriProduk.includes(kategoriDipilih)) {
-            produk.style.display = "flex";
-          } else {
-            produk.style.display = "none";
-          }
+          produk.style.display = kategoriDipilih === "semua" || kategoriProduk.includes(kategoriDipilih) ? "flex" : "none";
         });
 
-        // Set tombol aktif
+        // Highlight tombol aktif
         tombolKategori.forEach(btn => btn.classList.remove("active"));
         button.classList.add("active");
       });
