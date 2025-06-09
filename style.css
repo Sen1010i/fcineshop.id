@@ -1,22 +1,20 @@
-/* style.css FINAL */
-
-body, html {
+/* === GLOBAL === */
+html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
   background-color: #fff0f5;
-  display: flex;
-  flex-direction: column;
 }
 
+/* === WRAPPER === */
 .wrapper {
-  flex: 1;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
-/* HEADER */
+/* === HEADER === */
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -46,7 +44,7 @@ body, html {
   outline: none;
 }
 
-/* BANNER */
+/* === BANNER === */
 .hero-banner {
   position: relative;
   width: 100%;
@@ -78,7 +76,42 @@ body, html {
   margin-bottom: 20px;
 }
 
-/* PRODUK */
+/* === KATEGORI FILTER === */
+.kategori-filter {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 30px auto;
+  flex-wrap: wrap;
+}
+
+.kategori-filter button {
+  background-color: #db7093;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.kategori-filter button:hover {
+  background-color: #c06080;
+}
+
+.kategori-filter button.active {
+  background-color: #c06080;
+}
+
+/* Sembunyikan kategori di HP */
+@media (max-width: 768px) {
+  .kategori-filter {
+    display: none;
+  }
+}
+
+/* === PRODUK === */
 .container {
   padding: 20px;
   max-width: 1200px;
@@ -94,6 +127,7 @@ body, html {
 }
 
 .product {
+  position: relative;
   width: 280px;
   min-height: 440px;
   display: flex;
@@ -122,13 +156,36 @@ body, html {
 }
 
 .price {
-  color: #c71585;
   font-weight: bold;
   margin-top: 5px;
   margin-bottom: 12px;
 }
 
-/* TOMBOL */
+.harga-asli {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 8px;
+}
+
+.harga-diskon {
+  color: #c71585;
+  font-weight: bold;
+}
+
+/* === LABEL PROMO === */
+.label-promo {
+  position: absolute;
+  background-color: crimson;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  top: 8px;
+  left: 8px;
+  z-index: 1;
+}
+
+/* === BUTTON === */
 .ripple-btn {
   position: relative;
   overflow: hidden;
@@ -144,6 +201,7 @@ body, html {
   justify-content: center;
   gap: 8px;
   transition: all 0.3s ease;
+  width: 100%;
 }
 
 .ripple-btn:hover {
@@ -185,14 +243,15 @@ button:focus {
   transform: rotate(-10deg) scale(1.2);
 }
 
-/* FOOTER */
+/* === FOOTER === */
 footer {
   text-align: center;
   padding: 15px;
   background-color: #eee;
+  margin-top: auto;
 }
 
-/* RESPONSIVE */
+/* === RESPONSIF === */
 @media (max-width: 768px) {
   .hero-text h1 {
     font-size: 20px;
@@ -211,38 +270,47 @@ footer {
   }
 }
 
-/* Promo label */
-.label-promo {
-  position: absolute;
-  background-color: crimson;
-  color: white;
-  font-size: 12px;
-  padding: 4px 8px;
+/* === FORM PAGE === */
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-top: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  margin-bottom: 16px;
   border-radius: 6px;
-  top: 8px;
-  left: 8px;
-  z-index: 1;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
-/* Harga diskon */
-.price {
-  color: #c71585;
-  font-weight: bold;
-  margin-bottom: 12px;
+.form-row {
+  display: flex;
+  gap: 20px;
 }
 
-.harga-asli {
-  text-decoration: line-through;
-  color: #999;
-  margin-right: 8px;
+.form-row > div {
+  flex: 1;
 }
 
-.harga-diskon {
-  color: #c71585;
-  font-weight: bold;
-}
-
-/* Active button kategori */
-.kategori-filter button.active {
-  background-color: #c06080;
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+  }
 }
