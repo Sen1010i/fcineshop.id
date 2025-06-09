@@ -8,46 +8,55 @@
 </head>
 <body>
   <div class="wrapper">
-    <!-- HEADER -->
+
+    <!-- Header -->
     <header class="main-header">
       <div class="logo">
         <img src="logo.jpg" alt="Logo Toko" />
       </div>
       <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Cari desain..." />
+        <input type="text" placeholder="Cari desain..." id="searchInput" />
       </div>
     </header>
 
-    <!-- BANNER -->
+    <!-- Banner -->
     <section class="hero-banner">
-      <img src="banner.png" alt="Promo Nail Art" class="banner-img" />
-       <!-- <div class="hero-text">
+      <img src="banner.jpg" alt="Promo Nail Art" class="banner-img" />
+      <div class="hero-text">
         <h1>Temukan Desain Nail Art Impianmu 💅</h1>
         <p>Koleksi terbaru dan custom design tersedia sekarang!</p>
-        <a href="#produk" class="ripple-btn">Lihat Koleksi</a>
-      </div> -->
-    </section> 
+        <a href="#produk" class="ripple-btn">Ayo Dicek</a>
+      </div>
+    </section>
 
-    <!-- Filter kategori -->
-    <div class="filters">
-      <button onclick="filterKategori('all')">Semua</button>
-      <button onclick="filterKategori('elegan')">Elegan</button>
-      <button onclick="filterKategori('feminim')">Feminim</button>
+    <!-- Kategori Filter -->
+    <div class="kategori-filter">
+      <button data-filter="elegan">Elegan</button>
+      <button data-filter="semua" class="active">Semua</button>
+      <button data-filter="feminin">Feminin</button>
+      <button data-filter="promo">Promo</button>
     </div>
 
-    <!-- PRODUK -->
+
+    <!-- Produk -->
     <div class="container">
-      <div id="produk">
-        <div class="product" data-kategori="feminim" data-nama="Floral and Sea">
-          <span class="badge">Promo</span>
+      <div class="product-list" id="produk">
+
+        <!-- Produk 1 -->
+        <div class="product" data-nama="Floral and Sea" data-kategori="feminin promo">
+          <span class="label-promo">Promo</span>
           <img src="flower.jpg" alt="Floral and Sea" />
           <div class="product-info">
             <h3>Floral and Sea</h3>
             <p>Motif bunga yang lembut dan feminim disertai design pink laut yang cocok untuk acara spesial!!</p>
-            <div class="price">Rp 25.000</div>
+            <div class="price">
+              <span class="harga-asli">Rp 30.000</span>
+              <span class="harga-diskon">Rp 25.000</span>
+            </div>
             <a href="form.html?desain=Floral and Sea">
               <button type="button" class="ripple-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24" class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                     viewBox="0 0 24 24" class="icon">
                   <path d="M14 2H10v4h4V2zm1 6H9c-1.1 0-2 .9-2 2v12h10V10c0-1.1-.9-2-2-2zM9 22V10h6v12H9z"/>
                 </svg>
                 Pesan Sekarang
@@ -56,7 +65,8 @@
           </div>
         </div>
 
-        <div class="product" data-kategori="elegan" data-nama="Silver and Black">
+        <!-- Produk 2 -->
+        <div class="product" data-nama="Silver and Black" data-kategori="elegan">
           <img src="silvernblack.jpg" alt="Silver and Black Nail Art" />
           <div class="product-info">
             <h3>Silver and Black</h3>
@@ -64,7 +74,8 @@
             <div class="price">Rp 20.000</div>
             <a href="form.html?desain=Silver and Black">
               <button type="button" class="ripple-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24" class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                     viewBox="0 0 24 24" class="icon">
                   <path d="M14 2H10v4h4V2zm1 6H9c-1.1 0-2 .9-2 2v12h10V10c0-1.1-.9-2-2-2zM9 22V10h6v12H9z"/>
                 </svg>
                 Pesan Sekarang
@@ -72,46 +83,64 @@
             </a>
           </div>
         </div>
+
       </div>
-      <p id="noResult" class="">Produk tidak ditemukan.</p>
     </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>Hubungi kami di WA: +62-812-6855-6553 | IG: @fcineshop.id</p>
+    </footer>
   </div>
 
-  <footer>
-    <p>Hubungi kami di WA: +62-812-6855-6553 | IG: @fcineshop.id</p>
-  </footer>
-
-  <!-- SCRIPT FILTER -->
+  <!-- Ripple, Pencarian & Filter Script -->
   <script>
-    function filterKategori(kategori) {
-      const produk = document.querySelectorAll(".product");
-      let visible = 0;
-      produk.forEach((item) => {
-        const match = item.dataset.kategori === kategori || kategori === 'all';
-        item.style.display = match ? 'block' : 'none';
-        if (match) visible++;
+    // Ripple effect
+    document.querySelectorAll(".ripple-btn").forEach(button => {
+      button.addEventListener("click", function(e) {
+        const circle = document.createElement("span");
+        circle.classList.add("ripple-circle");
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        circle.style.width = circle.style.height = `${size}px`;
+        circle.style.left = `${e.clientX - rect.left - size / 2}px`;
+        circle.style.top = `${e.clientY - rect.top - size / 2}px`;
+        this.appendChild(circle);
+        setTimeout(() => circle.remove(), 600);
       });
-      document.getElementById("noResult").style.display = visible === 0 ? 'block' : 'none';
-    }
-  </script>
-
-  <script>
-  const inputSearch = document.getElementById("searchInput");
-  const produkList = document.querySelectorAll(".product");
-
-  inputSearch.addEventListener("input", () => {
-    const query = inputSearch.value.toLowerCase();
-
-    produkList.forEach(produk => {
-      const nama = produk.getAttribute("data-nama").toLowerCase();
-      if (nama.includes(query)) {
-        produk.style.display = "flex";
-      } else {
-        produk.style.display = "none";
-      }
     });
-  });
-</script>
 
+    // Pencarian nama produk
+    const inputSearch = document.getElementById("searchInput");
+    const produkList = document.querySelectorAll(".product");
+
+    inputSearch.addEventListener("input", () => {
+      const query = inputSearch.value.toLowerCase();
+      produkList.forEach(produk => {
+        const nama = produk.getAttribute("data-nama").toLowerCase();
+        produk.style.display = nama.includes(query) ? "flex" : "none";
+      });
+    });
+
+    // Filter kategori
+    const tombolKategori = document.querySelectorAll(".kategori-filter button");
+    tombolKategori.forEach(button => {
+      button.addEventListener("click", () => {
+        const kategoriDipilih = button.getAttribute("data-filter");
+        produkList.forEach(produk => {
+          const kategoriProduk = produk.getAttribute("data-kategori").toLowerCase();
+          if (kategoriDipilih === "semua" || kategoriProduk.includes(kategoriDipilih)) {
+            produk.style.display = "flex";
+          } else {
+            produk.style.display = "none";
+          }
+        });
+
+        // Set tombol aktif
+        tombolKategori.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+      });
+    });
+  </script>
 </body>
 </html>

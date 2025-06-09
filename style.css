@@ -1,4 +1,5 @@
-/* GLOBAL */
+/* style.css FINAL */
+
 body, html {
   margin: 0;
   padding: 0;
@@ -13,385 +14,6 @@ body, html {
   flex: 1;
   display: flex;
   flex-direction: column;
-}
-
-/* HEADER & FOOTER */
-header {
-  background-color: #db7093;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-footer {
-  text-align: center;
-  padding: 15px;
-  background-color: #eee;
-}
-
-/* CONTAINER */
-.container {
-  padding: 20px;
-  max-width: 900px;
-  margin: auto;
-}
-
-/* PRODUK */
-#produk {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-top: 30px;
-}
-
-.product {
-  flex-direction: column;
-  text-align: center;
-  padding-bottom: 20px;
-  position: relative;
-  opacity: 1;
-  transform: scale(1);
-  transition: all 0.3s ease;
-  background-color: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 300px; /* atau 320px */
-  min-height: 440px;
-}
-
-.product.hide {
-  opacity: 0;
-  transform: scale(0.95);
-  pointer-events: none;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.product img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 8px 8px 0 0;
-}
-
-.product-info {
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-grow: 1;
-  flex: 1;
-
-}
-
-.product-info h3 {
-  margin: 0;
-}
-
-.product-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-
-.price {
-  color: #c71585;
-  font-weight: bold;
-  margin-top: 5px;
-  margin-bottom: 12px;
-}
-
-/* Pesan tidak ditemukan */
-#noResult {
-  display: block;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
-  text-align: center;
-  margin-top: 20px;
-  font-weight: bold;
-  color: #c71585;
-}
-
-#noResult.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Badge Promo */
-.badge {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: crimson;
-  color: white;
-  padding: 4px 8px;
-  font-size: 12px;
-  font-weight: bold;
-  border-radius: 4px;
-}
-
-/* Filter Kategori */
-.filters {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.filters button {
-  margin: 5px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 20px;
-  background-color: #db7093;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.filters button:hover {
-  background-color: #c06080;
-}
-
-/* BUTTON */
-button {
-  background-color: #db7093;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  margin-top: auto;
-  cursor: pointer;
-  border-radius: 5px;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.3s ease;
-}
-
-button:focus {
-  outline: none;
-}
-
-button:hover {
-  background-color: #c06080;
-}
-
-a button {
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* FORM */
-form {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  margin-top: 30px;
-}
-
-form label {
-  font-weight: bold;
-}
-
-form input,
-form select,
-form textarea {
-  width: 100%;
-  padding: 8px;
-  margin-top: 4px;
-  margin-bottom: 15px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-/* TANGGAL & WAKTU */
-.form-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.form-row > div {
-  flex: 1;
-  min-width: 150px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .product {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .product img {
-    width: 100%;
-    height: auto;
-  }
-
-  .product-info {
-    padding: 10px;
-    text-align: center;
-  }
-
-  button {
-    width: 100%;
-  }
-
-  .hero-text h1 {
-    font-size: 20px;
-  }
-
-  .hero-text p {
-    font-size: 14px;
-  }
-
-  .search-bar input {
-    width: 120px;
-  }
-}
-
-@media (max-width: 600px) {
-  .form-row {
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 480px) {
-  header, footer {
-    padding: 15px;
-  }
-
-  .container {
-    padding: 10px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  .product-info h3 {
-    font-size: 18px;
-  }
-
-  .price {
-    font-size: 16px;
-  }
-
-  button {
-    font-size: 14px;
-    padding: 8px;
-  }
-
-  .search-bar input {
-    width: 100px;
-  }
-
-  .product-info p {
-    font-size: 14px;
-  }
-}
-
-/* TOMBOL RIPPLE + ANIMASI */
-.ripple-btn {
-  position: relative;
-  overflow: hidden;
-  background-color: #db7093;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  transition: all 0.3s ease;
-}
-
-.ripple-btn:focus {
-  outline: none;
-}
-
-.ripple-btn:hover {
-  background-color: #c06080;
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.ripple-btn:active {
-  transform: scale(0.95);
-}
-
-.ripple-circle {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.6);
-  transform: scale(0);
-  animation: ripple-animation 0.6s linear;
-  pointer-events: none;
-}
-
-@keyframes ripple-animation {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-.icon {
-  transition: transform 0.3s ease;
-}
-
-.ripple-btn:hover .icon {
-  transform: rotate(-10deg) scale(1.2);
-}
-
-/* TOMBOL KEMBALI */
-.btn-kembali-atas {
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  background-color: #db7093;
-  border-radius: 50%;
-  padding: 8px;
-  z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease;
-}
-
-.btn-kembali-atas:hover {
-  background-color: #c06080;
-}
-
-.btn-kembali-header {
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  background-color: #ffffff33;
-  color: white;
-  font-size: 22px;
-  padding: 6px 10px;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.btn-kembali-header:hover {
-  background-color: #ffffff55;
 }
 
 /* HEADER */
@@ -454,4 +76,173 @@ form textarea {
 .hero-text p {
   font-size: 18px;
   margin-bottom: 20px;
+}
+
+/* PRODUK */
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.product {
+  width: 280px;
+  min-height: 440px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-info h3 {
+  margin: 0;
+}
+
+.price {
+  color: #c71585;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 12px;
+}
+
+/* TOMBOL */
+.ripple-btn {
+  position: relative;
+  overflow: hidden;
+  background-color: #db7093;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.ripple-btn:hover {
+  background-color: #c06080;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.ripple-btn:active {
+  transform: scale(0.95);
+}
+
+.ripple-btn:focus,
+button:focus {
+  outline: none;
+}
+
+.ripple-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.icon {
+  transition: transform 0.3s ease;
+}
+
+.ripple-btn:hover .icon {
+  transform: rotate(-10deg) scale(1.2);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #eee;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 20px;
+  }
+
+  .hero-text p {
+    font-size: 14px;
+  }
+
+  .search-bar input {
+    width: 120px;
+  }
+
+  .product {
+    width: 100%;
+  }
+}
+
+/* Promo label */
+.label-promo {
+  position: absolute;
+  background-color: crimson;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  top: 8px;
+  left: 8px;
+  z-index: 1;
+}
+
+/* Harga diskon */
+.price {
+  color: #c71585;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.harga-asli {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 8px;
+}
+
+.harga-diskon {
+  color: #c71585;
+  font-weight: bold;
+}
+
+/* Active button kategori */
+.kategori-filter button.active {
+  background-color: #c06080;
 }
