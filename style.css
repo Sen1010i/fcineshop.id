@@ -129,7 +129,7 @@ html, body {
 .product {
   position: relative;
   width: 280px;
-  min-height: 440px;
+  min-height: 460px;
   display: flex;
   flex-direction: column;
   background-color: #fff;
@@ -149,6 +149,8 @@ html, body {
   display: flex;
   flex-direction: column;
   flex: 1;
+  flex-grow: 1;
+  justify-content: space-between;
 }
 
 .product-info h3 {
@@ -214,10 +216,14 @@ html, body {
   transform: scale(0.95);
 }
 
+.ripple-btn,
 .ripple-btn:focus,
-button:focus {
+.ripple-btn:active {
   outline: none;
+  border: none;
+  box-shadow: none;
 }
+
 
 .ripple-circle {
   position: absolute;
@@ -343,4 +349,16 @@ form textarea {
   position: absolute;
   top: 20px;
   left: 20px;
+}
+
+.pesan-wrapper {
+  margin-top: auto;
+  padding-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.pesan-wrapper a {
+  text-decoration: none;
+  width: 100%;
 }
